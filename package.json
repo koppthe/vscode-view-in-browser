@@ -5,20 +5,20 @@
   "version": "0.0.1",
   "publisher": "koppt",
   "engines": {
-    "vscode": "^1.0.0"
+    "vscode": "^1.1.10"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.sayHello"
+    "onCommand:extension.viewInBrowser"
   ],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+        "command": "extension.viewInBrowser",
+        "title": "View In Browser"
       }
     ]
   },
