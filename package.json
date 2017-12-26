@@ -1,0 +1,38 @@
+{
+  "name": "vscode-view-in-browser",
+  "displayName": "vscode-view-in-browser",
+  "description": "View html files in your default browser or specific browsers.",
+  "version": "0.0.1",
+  "publisher": "koppt",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.sayHello"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.sayHello",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.2",
+    "eslint": "^4.14.0",
+    "eslint-plugin-typescript": "^0.8.1",
+    "typescript": "^2.6.2",
+    "typescript-eslint-parser": "^11.0.0",
+    "vscode": "^1.1.10"
+  }
+}
