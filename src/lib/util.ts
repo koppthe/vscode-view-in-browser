@@ -2,26 +2,26 @@
 
 import * as path from 'path'
 import * as vscode from 'vscode'
-import { browsers }  from './config'
+import browsers  from './browser'
 import { exec } from 'child_process'
 
-function isFocused () {
+function isFocused () : boolean {
   return !!vscode.window.activeTextEditor
 }
 
-function isHtml () {
+function isHtml () : boolean {
   return vscode.window.activeTextEditor.document.languageId === 'html'
 }
 
-function filePath (file) {
+function getFilePath (file: string = '') : string {
   if (!file) {
     let uri = vscode.window.activeTextEditor.document.uri
-    return `file://${uri.fsPath}`
+    return path.resolve(uri.fsPath)
   }
-  return `file://${file}`
+  return path.resolve(file)
 }
 
-function getStandardBrowserName (name) {
+function getStandardBrowserName (name: string) : string {
   name = name && name.toLowerCase()
 
   for (let i = 0, len = browsers.length; i < len; i++) {
@@ -32,8 +32,8 @@ function getStandardBrowserName (name) {
   return ''
 }
 
-function getDefaultBrowser () {
-  let browser = ''
+function getDefaultBrowser () : string {
+  let browser: string = ''
   let config = vscode.workspace.getConfiguration('view-in-browser')
 
   if (config.default) {
@@ -43,8 +43,8 @@ function getDefaultBrowser () {
   return browser
 }
 
-function openFile (platform, path, browser) {
-  let cmd
+function openFileInBrowser (platform: string, path: string, browser: string) {
+  let cmd: string
   let browserName = getStandardBrowserName(browser)
 
   switch (platform) {
@@ -59,17 +59,17 @@ function openFile (platform, path, browser) {
       break
   }
 
-  exec(cmd, (err, stdout, stderr) => {
+  exec(cmd, err => {
     if (err) {
-      vscode.window.showErrorMessage('Error occured!')
+      vscode.window.showErrorMessage('Sorry, error occured!')
     }
   })
 }
 
-export default {
+export {
   isFocused,
   isHtml,
-  filePath,
-  openFile,
+  getFilePath,
+  openFileInBrowser,
   getDefaultBrowser
 }

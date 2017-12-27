@@ -1,17 +1,30 @@
 'use strict';
 
 import * as vscode from 'vscode'
-import { open } from './lib/cmd'
+import {
+  openDefault,
+  openFromMenu,
+  openSpecify
+} from './lib/command'
 
 export function activate (context) {
 
-    console.log('Congratulations, your extension "vscode-view-in-browser" is now active!')
-
-    let disposable = vscode.commands.registerCommand('extension.viewInBrowser', () => {
-        vscode.window.showInformationMessage('Hello World!');
+    let openCommand = vscode.commands.registerCommand('extension.viewInBrowser', () => {
+      openDefault()
+      vscode.window.showInformationMessage('Hello World!')
     })
 
-    context.subscriptions.push(disposable)
+    let openCommandFromMenu = vscode.commands.registerCommand('extension.viewInBrowserFromMenu', fileUrl => {
+      openFromMenu(fileUrl.fsPath)
+    })
+
+    let openCommandFromSpecify = vscode.commands.registerCommand('extension.viewInSpecifyBrowser', fileUrl => {
+      openSpecify(fileUrl.fsPath)
+    })
+
+    context.subscriptions.push(openCommand)
+    context.subscriptions.push(openCommandFromMenu)
+    context.subscriptions.push(openCommandFromSpecify)
 }
 
 // this method is called when your extension is deactivated
