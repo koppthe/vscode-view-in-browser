@@ -1,13 +1,29 @@
-# README
-## This is the README for your extension "vscode-view-in-browser"
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+# VSCode View In Browser
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/1240899/34376304-00d09652-eb26-11e7-8730-8dfa5fe753c8.png" alt="Logo">
+</p>
 
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Preview `HTML` files in your browser. Support Chrome, Firefox, Opera, Safari, IE.
 
-**Enjoy!**
+## Usage
+
+Three ways to use:
+- Command
+- Editor Context Menu
+- Explorer Context Menu
+
+## Commands
+
+`Ctrl+Shift+P` or `Cmd+Shift+P`
+
+  - View In Browser
+  - View In Other Browsers
+
+## Options
+
+`view-in-browser.default`: set default browser
+
+## License
+
+MIT

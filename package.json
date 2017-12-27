@@ -1,6 +1,6 @@
 {
   "name": "vscode-view-in-browser",
-  "displayName": "vscode-view-in-browser",
+  "displayName": "view-in-browser",
   "description": "View html files in your default browser or specific browsers.",
   "icon": "https://user-images.githubusercontent.com/1240899/34376304-00d09652-eb26-11e7-8730-8dfa5fe753c8.png",
   "version": "1.0.0",
