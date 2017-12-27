@@ -11,7 +11,6 @@ export function activate (context) {
 
     let openCommand = vscode.commands.registerCommand('extension.viewInBrowser', () => {
       openDefault()
-      vscode.window.showInformationMessage('Hello World!')
     })
 
     let openCommandFromMenu = vscode.commands.registerCommand('extension.viewInBrowserFromMenu', fileUrl => {
